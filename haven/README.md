@@ -1,32 +1,26 @@
-# React + TypeScript + Vite
+# Haven: A Zero-Backend WebMCP Financial Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Haven is a modern, privacy-first personal finance dashboard built for the **WebMCP Hackathon**. Instead of requiring users to upload sensitive bank statements to a remote server, Haven uses the WebMCP protocol to process everything on the client-side using the ChatGPT in-app browser.
 
-Currently, two official plugins are available:
+## 🚀 Features
+- **Zero-Backend Architecture:** No database required. All state is persisted securely in the browser's Local Storage.
+- **Client-Side WebMCP:** We register our AI tools (`add_transaction` and `set_net_worth`) directly onto `window.modelContext`. The AI reads from and writes to the React context seamlessly.
+- **Premium UI/UX:** Built with React, TailwindCSS, and Lucide icons for a senior-grade aesthetic avoiding generic AI cliches.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠️ How it Works
+1. Navigate to the deployed Haven dashboard in the **ChatGPT Desktop App** browser.
+2. The frontend automatically registers the WebMCP tools via `window.modelContext.registerTool()`.
+3. The user pastes their raw bank statement text into the ChatGPT chat.
+4. ChatGPT extracts the transaction data and calls the WebMCP tools, injecting the structured data directly into the React context. The UI updates instantly.
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## ⚙️ Development
+To run this project locally:
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+*Note: WebMCP tools will only successfully register when the app is opened within an environment that supports `window.modelContext`, such as the ChatGPT desktop app.*
+
+## 📄 License
+This project is licensed under the MIT License.
