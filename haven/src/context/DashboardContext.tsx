@@ -101,14 +101,14 @@ function useLocalStorage<T>(key: string, initialValue: T) {
 }
 
 export function DashboardProvider({ children }: { children: ReactNode }) {
-  const [currency, setCurrency] = useLocalStorage('haven_currency', 'USD');
-  const [currentMonth, setCurrentMonth] = useLocalStorage('haven_month', 'January');
-  const [currentYear, setCurrentYear] = useLocalStorage('haven_year', '2024');
-  const [netWorthAmount, setNetWorthAmount] = useLocalStorage('haven_netWorthAmount', 0);
-  const [monthlySpend, setMonthlySpend] = useLocalStorage('haven_monthlySpend', 0);
-  const [historicalData, setHistoricalData] = useLocalStorage<HistoricalMonthData[]>('haven_historicalData', []);
-  const [transactions, setTransactions] = useLocalStorage<Transaction[]>('haven_transactions', []);
-  const [feed, setFeed] = useLocalStorage<ActivityFeedItem[]>('haven_feed', []);
+  const [currency, setCurrency] = useLocalStorage('haven_v2_currency', 'USD');
+  const [currentMonth, setCurrentMonth] = useLocalStorage('haven_v2_month', 'January');
+  const [currentYear, setCurrentYear] = useLocalStorage('haven_v2_year', '2024');
+  const [netWorthAmount, setNetWorthAmount] = useLocalStorage('haven_v2_netWorthAmount', 0);
+  const [monthlySpend, setMonthlySpend] = useLocalStorage('haven_v2_monthlySpend', 0);
+  const [historicalData, setHistoricalData] = useLocalStorage<HistoricalMonthData[]>('haven_v2_historicalData', []);
+  const [transactions, setTransactions] = useLocalStorage<Transaction[]>('haven_v2_transactions', []);
+  const [feed, setFeed] = useLocalStorage<ActivityFeedItem[]>('haven_v2_feed', []);
   
   const [isAgentProcessing, setIsAgentProcessing] = useState(false);
   const [agentTaskDone, setAgentTaskDone] = useState(false);
