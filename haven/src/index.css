@@ -1,0 +1,45 @@
+@import "tailwindcss";
+@import "open-props/style";
+
+:root {
+  --theme-bg: #F9FAFB;
+  --theme-surface: #FFFFFF;
+  --theme-text: #121212;
+  --theme-text-muted: #6b7280;
+  --theme-border: #f3f4f6; /* gray-100 */
+  --theme-border-darker: #e5e7eb; /* gray-200 */
+}
+
+.dark {
+  --theme-bg: #121212;
+  --theme-surface: #1e1e1e;
+  --theme-text: #F9FAFB;
+  --theme-text-muted: #9ca3af;
+  --theme-border: #374151; /* gray-700 */
+  --theme-border-darker: #4b5563; /* gray-600 */
+}
+
+@theme {
+  /* Haven Custom Colors */
+  --color-primary-white: var(--theme-surface);
+  --color-primary-red: #E50914; 
+  --color-accent-black: var(--theme-text);
+  --color-soft-bg: var(--theme-bg);
+
+  /* Tailwind Core Colors Overrides */
+  --color-white: var(--theme-surface);
+  --color-gray-50: var(--theme-bg);
+  --color-gray-100: var(--theme-border);
+  --color-gray-200: var(--theme-border-darker);
+  --color-gray-400: var(--theme-text-muted);
+  --color-gray-500: var(--theme-text-muted);
+  --color-gray-600: var(--theme-text-muted);
+  --color-gray-800: var(--theme-text);
+  --color-gray-900: var(--theme-text);
+}
+
+body {
+  background-color: var(--color-soft-bg);
+  color: var(--color-accent-black);
+  font-family: var(--font-sans);
+}

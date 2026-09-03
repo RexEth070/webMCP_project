@@ -1,0 +1,94 @@
+.nav {
+  width: 100%;
+  background-color: var(--gray-0);
+  border-bottom: 1px solid var(--gray-2);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  /* Above most content */
+}
+
+.container {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: var(--size-4);
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-inline: var(--size-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-inline: var(--size-8);
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  text-decoration: none;
+}
+
+.logoImage {
+  width: 105px;
+  height: 105px;
+  object-fit: contain;
+  margin-right: -2.5rem; /* pull the text very close */
+  margin-top: 10px; /* drag the logo down a bit */
+}
+
+
+.logoText {
+  font-weight: var(--font-weight-7);
+  font-size: var(--font-size-4);
+  letter-spacing: var(--font-letterspacing-1);
+  color: var(--gray-10);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--size-4);
+}
+
+.loginLink {
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-6);
+  color: var(--gray-7);
+  text-decoration: none;
+  transition: color 0.2s var(--ease-2);
+}
+
+.loginLink:hover {
+  color: var(--indigo-7);
+}
+
+.ctaButton {
+  background-color: var(--teal-7);
+  color: var(--gray-0);
+  padding-inline: var(--size-4);
+  padding-block: var(--size-2);
+  border-radius: var(--radius-2);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-6);
+  text-decoration: none;
+  box-shadow: var(--shadow-2);
+  transition: all 0.3s var(--ease-spring-3);
+}
+
+.ctaButton:hover {
+  background-color: var(--teal-8);
+  box-shadow: var(--shadow-3);
+  transform: translateY(-2px);
+}
