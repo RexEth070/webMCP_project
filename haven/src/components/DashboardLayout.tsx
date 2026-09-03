@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Home, PieChart, Activity, Settings, Bell, LogOut, Upload } from 'lucide-react';
+import { Home, PieChart, Activity, Settings, Bell, LogOut } from 'lucide-react';
 import { UserAvatar } from './UserAvatar';
 
 interface SidebarItemProps {
@@ -32,21 +32,6 @@ interface DashboardLayoutProps {
 
 export const DashboardLayout = ({ children, activeTab = 'Overview', onTabChange }: DashboardLayoutProps) => {
   const navigate = useNavigate();
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handleImportClick = () => {
-    fileInputRef.current?.click();
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      alert(`Statement ${file.name} ready for processing. You can also ask your AI agent to process this directly via WebMCP!`);
-    }
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
-    }
-  };
 
   return (
     <div className="min-h-screen bg-[var(--color-soft-bg)] flex">
@@ -88,20 +73,6 @@ export const DashboardLayout = ({ children, activeTab = 'Overview', onTabChange 
         {/* TopBar */}
         <header className="h-16 bg-white border-b border-gray-200/60 flex items-center justify-end px-8 sticky top-0 z-10">
           <div className="flex items-center gap-4">
-            <input 
-              type="file" 
-              ref={fileInputRef} 
-              onChange={handleFileChange} 
-              className="hidden" 
-              accept=".csv,.pdf" 
-            />
-            <button 
-              onClick={handleImportClick}
-              className="flex items-center gap-2 px-4 py-2 bg-[var(--color-primary-red)] text-white rounded-lg font-medium text-sm hover:bg-red-600 transition-colors shadow-sm shadow-red-500/20"
-            >
-              <Upload size={16} />
-              <span>Import Statement</span>
-            </button>
             <button className="p-2 text-gray-400 hover:text-[var(--color-accent-black)] transition-colors">
               <Bell size={20} />
             </button>
@@ -119,3 +90,4 @@ export const DashboardLayout = ({ children, activeTab = 'Overview', onTabChange 
     </div>
   );
 };
+
