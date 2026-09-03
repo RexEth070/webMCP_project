@@ -21,10 +21,10 @@ export function useWebMCP() {
   }, [context]);
 
   useEffect(() => {
-    // Check if we are running in an environment with WebMCP support
-    const registry = document.modelContext;
+    // Check if we are running in an environment with WebMCP support (ChatGPT uses navigator or window)
+    const registry = (window as any).modelContext || (navigator as any).modelContext || document.modelContext;
     if (!registry) {
-      console.log('WebMCP: document.modelContext not found. Tools not registered.');
+      console.log('WebMCP: modelContext not found. Tools not registered.');
       return;
     }
 
