@@ -41,11 +41,11 @@
 }
 
 .logoImage {
-  width: 105px;
-  height: 105px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
   margin-right: -2.5rem; /* pull the text very close */
-  margin-top: 10px; /* drag the logo down a bit */
+  margin-top: 15px; /* drag the logo down a bit to balance the larger size */
 }
 
 
